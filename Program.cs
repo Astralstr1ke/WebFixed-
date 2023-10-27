@@ -38,16 +38,20 @@ public class StudentRepository : IstudentRepository
     public StudentRepository()
     {
         _students = new List<Student>();
+        // Tbd static tests
+        Guid guid = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6");
+        _students.Add(new Student { Id = guid, Name = "Linus", Major = "Programming" });
     }
 
     public void Add(Student std)
     {
-        throw new NotImplementedException();
+        _students.Add(std);
     }
 
     public Student Get(Guid id)
     {
-        throw new NotImplementedException();
+        return _students.FirstOrDefault(s=> s.Id ==id);
+        
     }
 }
 public class Student
